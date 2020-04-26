@@ -27,7 +27,7 @@ public class StudentManager{
 		System.out.println("*              4  修改                                   *");
 		System.out.println("*              5  输出                                   *");
 		System.out.println("*              6  退出                                   *");
-		System.out.println("***********************************\n");
+		System.out.println("***********************************");
 		//输入值判断
 		int input=sc.nextInt();
 		switch (input) {
@@ -64,7 +64,7 @@ public class StudentManager{
 		}
 		else{
 			System.out.println("添加学生信息");
-			System.out.println("输入ID");
+			System.out.println("输入ID：");
 			int id = sc.nextInt();
 			int flag=0;//学生信息是否已存在
 			for(int i=0;i<students.length;i++)
@@ -78,11 +78,11 @@ public class StudentManager{
 				}
 			}
 			if(flag==0) {//没有重复的
-				System.out.println("输入姓名");
+				System.out.println("输入姓名：");
 				String name = sc.next();
-				System.out.println("输入出生日期");
+				System.out.println("输入出生日期：");
 				String birDate= sc.next();
-				System.out.println("输入性别");
+				System.out.println("输入性别：（男为true，女为false）");
 				Boolean gender = sc.nextBoolean();
 				Student s= new Student(id,name,birDate,gender);
 				for(int i=0;i<students.length;i++)//找数组中的空闲空间
@@ -93,7 +93,7 @@ public class StudentManager{
 						break;
 					}
 				}
-				System.out.println("成功添加学生信息");
+				System.out.println("成功添加学生信息\n");
 				num++;//当前学生数量+1
 				Arrays.sort(students);//排序
 				app();
@@ -110,12 +110,15 @@ public class StudentManager{
 		{
 			Student s=students[i];
 			if(name.equals(s.getName())&&s.getId()!=-1){//有匹配的,java中字符串的比较不能用“==”！！！
-				System.out.println("ID:"+s.getId()+" Name："+s.getName()+" BirDate:"+s.getBirDate()+" Gender:"+s.getGender());
+				System.out.println("ID:"+s.getId()+" Name："+s.getName()+" BirDate:"+s.getBirDate()+" Gender:"+s.getGender()+"\n");
 				flag=1;
 			}
 		}
 		if(flag==0) {
 			System.out.println("没有符合条件的学生！\n");
+		}
+		else {
+			System.out.println("\n");
 		}
 		app();
 	}
@@ -161,7 +164,7 @@ public class StudentManager{
 				s.setName(sc.next());
 				System.out.println("修改出生日期：");
 				s.setBirDate(sc.next());
-				System.out.println("修改性别：");
+				System.out.println("修改性别：（男为true，女为false）");
 				s.setGender(sc.nextBoolean());
 				flag=1;
 				cnt++;
@@ -172,7 +175,7 @@ public class StudentManager{
 			System.out.println("无符合条件的信息！");
 		}
 		else {
-			System.out.println("修改"+cnt+"条学生信息成功");
+			System.out.println("修改"+cnt+"条学生信息成功\n");
 		}
 		app();
 		
@@ -191,9 +194,11 @@ public class StudentManager{
 				if(s.getId()!=-1){//此时有学生信息
 					System.out.println("ID:"+s.getId()+" Name："+s.getName()+" BirDate:"+s.getBirDate()+" Gender:"+s.getGender());			
 				}
-			}	
+			}
+			System.out.println("\n");
 		}
 		
 		app();
 	}
+ 
 }
