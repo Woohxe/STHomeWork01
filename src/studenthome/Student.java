@@ -1,36 +1,30 @@
-package StudentHome;
+package studenthome;
 
 public class Student implements Comparable<Student>{
-	//私有变量
-	private int ID;
+	// 私有变量
+	// 问题1： 以lowerCamelCasefe风格命名   private int ID;
+	private int id;
 	private String name;
 	private String birDate;
 	private Boolean gender;
 	
 	public Student() {
-		this.ID=-1;
+		this.id=-1;
 	}
 	
 	public Student(int id,String name,String birDate,Boolean gender) {
-		this.ID=id;
+		this.id=id;
 		this.name=name;
 		this.birDate=birDate;
 		this.gender=gender;
 	}
-	@Override
-	public String toString() {
-		return "Student [id=" + ID + ", name=" + name + ", birDate=" + birDate
-				+ ", gender=" + gender + "]";
-	}
-	static final int USER_STUDENT = 2;
-	
 	
 	public Integer getId() {
-		return ID;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		this.ID = id;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -58,7 +52,7 @@ public class Student implements Comparable<Student>{
 	}
 
 	@Override
-	public int compareTo(Student arg0) {//按学生id值排序
-		return this.ID - arg0.ID;
+	public int compareTo(Student arg0) { // 按学生id值排序
+		return this.id - arg0.id;
 	}
 }
